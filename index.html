@@ -40,31 +40,45 @@
       </a>
 
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-        <a href="#services" class="hover:text-brand-600 transition-colors">Services</a>
-        <a href="#about" class="hover:text-brand-600 transition-colors">About</a>
-        <a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a>
+        <a href="#services" class="hover:text-brand-600 transition-colors" data-i18n="nav.services">Services</a>
+        <a href="#about" class="hover:text-brand-600 transition-colors" data-i18n="nav.about">About</a>
+        <a href="#contact" class="hover:text-brand-600 transition-colors" data-i18n="nav.contact">Contact</a>
       </div>
 
-      <a href="#contact" class="hidden md:inline-flex items-center rounded-full bg-brand-600 px-5 py-2 text-sm font-semibold text-white hover:bg-brand-700 transition-colors">
-        Get in touch
-      </a>
+      <div class="hidden md:flex items-center gap-4">
+        <div class="flex items-center gap-1 rounded-full bg-slate-100 p-1 text-xs font-semibold" role="group" aria-label="Language">
+          <button type="button" data-lang-btn="en" class="lang-btn rounded-full px-2.5 py-1 transition-colors">EN</button>
+          <button type="button" data-lang-btn="nl" class="lang-btn rounded-full px-2.5 py-1 transition-colors">NL</button>
+          <button type="button" data-lang-btn="fr" class="lang-btn rounded-full px-2.5 py-1 transition-colors">FR</button>
+        </div>
+        <a href="#contact" class="inline-flex items-center rounded-full bg-brand-600 px-5 py-2 text-sm font-semibold text-white hover:bg-brand-700 transition-colors" data-i18n="nav.cta">
+          Get in touch
+        </a>
+      </div>
 
-      <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100">
-        <svg id="icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg id="icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+      <div class="flex items-center gap-3 md:hidden">
+        <div class="flex items-center gap-1 rounded-full bg-slate-100 p-1 text-xs font-semibold" role="group" aria-label="Language">
+          <button type="button" data-lang-btn="en" class="lang-btn rounded-full px-2 py-1 transition-colors">EN</button>
+          <button type="button" data-lang-btn="nl" class="lang-btn rounded-full px-2 py-1 transition-colors">NL</button>
+          <button type="button" data-lang-btn="fr" class="lang-btn rounded-full px-2 py-1 transition-colors">FR</button>
+        </div>
+        <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false" class="inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100">
+          <svg id="icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
     </nav>
 
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-6 py-4 space-y-3 text-sm font-medium text-slate-600">
-      <a href="#services" class="block hover:text-brand-600">Services</a>
-      <a href="#about" class="block hover:text-brand-600">About</a>
-      <a href="#contact" class="block hover:text-brand-600">Contact</a>
-      <a href="#contact" class="block rounded-full bg-brand-600 px-5 py-2 text-center text-white">Get in touch</a>
+      <a href="#services" class="block hover:text-brand-600" data-i18n="nav.services">Services</a>
+      <a href="#about" class="block hover:text-brand-600" data-i18n="nav.about">About</a>
+      <a href="#contact" class="block hover:text-brand-600" data-i18n="nav.contact">Contact</a>
+      <a href="#contact" class="block rounded-full bg-brand-600 px-5 py-2 text-center text-white" data-i18n="nav.cta">Get in touch</a>
     </div>
   </header>
 
@@ -73,22 +87,22 @@
     <section class="relative overflow-hidden pt-40 pb-24 px-6">
       <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"></div>
       <div class="max-w-4xl mx-auto text-center">
-        <p class="inline-block rounded-full bg-brand-100 text-brand-700 text-xs font-semibold tracking-wide uppercase px-4 py-1.5 mb-6">
+        <p class="inline-block rounded-full bg-brand-100 text-brand-700 text-xs font-semibold tracking-wide uppercase px-4 py-1.5 mb-6" data-i18n="hero.badge">
           Technology &amp; consulting
         </p>
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-slate-900 leading-tight">
-          Practical solutions for
-          <span class="text-brand-600">real business problems</span>
+          <span data-i18n="hero.title1">Practical solutions for</span>
+          <span class="text-brand-600" data-i18n="hero.title2">real business problems</span>
         </h1>
-        <p class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
+        <p class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto" data-i18n="hero.subtitle">
           R2 Solutions partners with growing companies to design, build, and support the software
           that keeps their operations running smoothly.
         </p>
         <div class="mt-10 flex items-center justify-center gap-4">
-          <a href="#contact" class="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700 transition-colors shadow-sm shadow-brand-600/30">
+          <a href="#contact" class="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700 transition-colors shadow-sm shadow-brand-600/30" data-i18n="hero.ctaPrimary">
             Start a conversation
           </a>
-          <a href="#services" class="rounded-full px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100 transition-colors">
+          <a href="#services" class="rounded-full px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100 transition-colors" data-i18n="hero.ctaSecondary">
             See what we do
           </a>
         </div>
@@ -99,9 +113,9 @@
     <section id="services" class="px-6 py-24 bg-white">
       <div class="max-w-6xl mx-auto">
         <div class="max-w-2xl">
-          <h2 class="text-sm font-semibold text-brand-600 tracking-wide uppercase">Services</h2>
-          <p class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900">What we do</p>
-          <p class="mt-4 text-slate-600">
+          <h2 class="text-sm font-semibold text-brand-600 tracking-wide uppercase" data-i18n="services.eyebrow">Services</h2>
+          <p class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900" data-i18n="services.heading">What we do</p>
+          <p class="mt-4 text-slate-600" data-i18n="services.paragraph">
             From a single automated workflow to a full product build, we scope work to fit your
             timeline and budget — no bloated engagements.
           </p>
@@ -114,8 +128,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
               </svg>
             </div>
-            <h3 class="mt-6 text-lg font-semibold text-slate-900">Custom software</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            <h3 class="mt-6 text-lg font-semibold text-slate-900" data-i18n="services.card1Title">Custom software</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed" data-i18n="services.card1Desc">
               Web apps, internal tools, and integrations built around how your team actually works.
             </p>
           </div>
@@ -126,8 +140,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.28z" />
               </svg>
             </div>
-            <h3 class="mt-6 text-lg font-semibold text-slate-900">Process automation</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            <h3 class="mt-6 text-lg font-semibold text-slate-900" data-i18n="services.card2Title">Process automation</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed" data-i18n="services.card2Desc">
               We find the manual, error-prone parts of your workflow and quietly make them disappear.
             </p>
           </div>
@@ -138,8 +152,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
               </svg>
             </div>
-            <h3 class="mt-6 text-lg font-semibold text-slate-900">Cloud &amp; infrastructure</h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+            <h3 class="mt-6 text-lg font-semibold text-slate-900" data-i18n="services.card3Title">Cloud &amp; infrastructure</h3>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed" data-i18n="services.card3Desc">
               Reliable, right-sized infrastructure — from hosting to CI/CD — that scales with you.
             </p>
           </div>
@@ -151,11 +165,11 @@
     <section id="about" class="px-6 py-24 bg-slate-50">
       <div class="max-w-6xl mx-auto grid gap-16 lg:grid-cols-2 items-center">
         <div>
-          <h2 class="text-sm font-semibold text-brand-600 tracking-wide uppercase">About</h2>
-          <p class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900">
+          <h2 class="text-sm font-semibold text-brand-600 tracking-wide uppercase" data-i18n="about.eyebrow">About</h2>
+          <p class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900" data-i18n="about.heading">
             A small team, deliberately.
           </p>
-          <p class="mt-6 text-slate-600 leading-relaxed">
+          <p class="mt-6 text-slate-600 leading-relaxed" data-i18n="about.paragraph">
             R2 Solutions stays small on purpose — every engagement gets direct access to the people
             actually doing the work, not layers of account management. We favor clear communication,
             realistic timelines, and software that's built to be maintained, not just shipped.
@@ -163,15 +177,15 @@
           <div class="mt-10 grid grid-cols-3 gap-6">
             <div>
               <p class="text-3xl font-bold text-slate-900">10+</p>
-              <p class="mt-1 text-sm text-slate-500">Years combined experience</p>
+              <p class="mt-1 text-sm text-slate-500" data-i18n="about.stat1">Years combined experience</p>
             </div>
             <div>
               <p class="text-3xl font-bold text-slate-900">100%</p>
-              <p class="mt-1 text-sm text-slate-500">Direct client access</p>
+              <p class="mt-1 text-sm text-slate-500" data-i18n="about.stat2">Direct client access</p>
             </div>
             <div>
               <p class="text-3xl font-bold text-slate-900">1:1</p>
-              <p class="mt-1 text-sm text-slate-500">Focus per engagement</p>
+              <p class="mt-1 text-sm text-slate-500" data-i18n="about.stat3">Focus per engagement</p>
             </div>
           </div>
         </div>
@@ -180,22 +194,22 @@
             <li class="flex gap-4">
               <span class="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-600 text-white text-sm font-semibold">1</span>
               <div>
-                <p class="font-semibold text-slate-900">Understand the problem</p>
-                <p class="mt-1 text-sm text-slate-600">We start with your workflow, not our tech stack.</p>
+                <p class="font-semibold text-slate-900" data-i18n="about.step1Title">Understand the problem</p>
+                <p class="mt-1 text-sm text-slate-600" data-i18n="about.step1Desc">We start with your workflow, not our tech stack.</p>
               </div>
             </li>
             <li class="flex gap-4">
               <span class="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-600 text-white text-sm font-semibold">2</span>
               <div>
-                <p class="font-semibold text-slate-900">Ship something small</p>
-                <p class="mt-1 text-sm text-slate-600">A working version early, so we can course-correct fast.</p>
+                <p class="font-semibold text-slate-900" data-i18n="about.step2Title">Ship something small</p>
+                <p class="mt-1 text-sm text-slate-600" data-i18n="about.step2Desc">A working version early, so we can course-correct fast.</p>
               </div>
             </li>
             <li class="flex gap-4">
               <span class="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-brand-600 text-white text-sm font-semibold">3</span>
               <div>
-                <p class="font-semibold text-slate-900">Support what we build</p>
-                <p class="mt-1 text-sm text-slate-600">We stick around after launch — not just at handoff.</p>
+                <p class="font-semibold text-slate-900" data-i18n="about.step3Title">Support what we build</p>
+                <p class="mt-1 text-sm text-slate-600" data-i18n="about.step3Desc">We stick around after launch — not just at handoff.</p>
               </div>
             </li>
           </ul>
@@ -206,63 +220,85 @@
     <!-- Contact -->
     <section id="contact" class="px-6 py-24 bg-white">
       <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-sm font-semibold text-brand-600 tracking-wide uppercase">Contact</h2>
-        <p class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900">Let's talk about your project</p>
-        <p class="mt-4 text-slate-600">
+        <h2 class="text-sm font-semibold text-brand-600 tracking-wide uppercase" data-i18n="contact.eyebrow">Contact</h2>
+        <p class="mt-2 text-3xl sm:text-4xl font-bold text-slate-900" data-i18n="contact.heading">Let's talk about your project</p>
+        <p class="mt-4 text-slate-600" data-i18n="contact.paragraph">
           Tell us a bit about what you're trying to build or fix, and we'll get back to you within
           one business day.
         </p>
 
         <form class="mt-12 text-left grid gap-5 sm:grid-cols-2" onsubmit="return false;">
           <div>
-            <label for="name" class="block text-sm font-medium text-slate-700">Name</label>
+            <label for="name" class="block text-sm font-medium text-slate-700" data-i18n="contact.nameLabel">Name</label>
             <input id="name" name="name" type="text" required
               class="mt-1.5 w-full rounded-lg border border-slate-200 px-4 py-2.5 text-slate-800 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 focus:outline-none" />
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
+            <label for="email" class="block text-sm font-medium text-slate-700" data-i18n="contact.emailLabel">Email</label>
             <input id="email" name="email" type="email" required
               class="mt-1.5 w-full rounded-lg border border-slate-200 px-4 py-2.5 text-slate-800 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 focus:outline-none" />
           </div>
           <div class="sm:col-span-2">
-            <label for="message" class="block text-sm font-medium text-slate-700">Message</label>
+            <label for="message" class="block text-sm font-medium text-slate-700" data-i18n="contact.messageLabel">Message</label>
             <textarea id="message" name="message" rows="4" required
               class="mt-1.5 w-full rounded-lg border border-slate-200 px-4 py-2.5 text-slate-800 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 focus:outline-none"></textarea>
           </div>
           <div class="sm:col-span-2 flex items-center justify-between gap-4">
-            <p class="text-xs text-slate-400">
+            <p class="text-xs text-slate-400" data-i18n="contact.note">
               This form isn't wired to a backend yet — hook it up to a Cloudflare Pages Function or a
               service like Formspree when you're ready.
             </p>
             <button type="submit"
-              class="flex-none rounded-full bg-brand-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-700 transition-colors">
+              class="flex-none rounded-full bg-brand-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-700 transition-colors" data-i18n="contact.submit">
               Send message
             </button>
           </div>
         </form>
 
         <div class="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-slate-600">
-          <a href="mailto:hello@r2solutions.example" class="hover:text-brand-600">hello@r2solutions.example</a>
           <span class="hidden sm:inline text-slate-300">|</span>
-          <span>Remote-first, working worldwide</span>
+          <span data-i18n="contact.remote">Remote-first, working worldwide</span>
+          <span class="hidden sm:inline text-slate-300">|</span>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-slate-100 px-6 py-10">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-      <p>&copy; <span id="year"></span> R2 Solutions. All rights reserved.</p>
-      <div class="flex gap-6">
-        <a href="#services" class="hover:text-brand-600">Services</a>
-        <a href="#about" class="hover:text-brand-600">About</a>
-        <a href="#contact" class="hover:text-brand-600">Contact</a>
+  <footer class="border-t border-slate-100 px-6 py-12">
+    <div class="max-w-6xl mx-auto grid gap-10 sm:grid-cols-3">
+      <div>
+        <p class="text-lg font-bold tracking-tight text-slate-900">R2 <span class="text-brand-600">Solutions</span></p>
+        <p class="mt-3 text-sm text-slate-500 leading-relaxed">
+          Dijk 39/5<br />
+          2861 Onze-Lieve-Vrouw-Waver<br />
+          Belgium
+        </p>
       </div>
+
+      <div>
+        <p class="text-sm font-semibold text-slate-900" data-i18n="footer.companyDetails">Company details</p>
+        <p class="mt-3 text-sm text-slate-500">
+          <span data-i18n="footer.vatLabel">VAT</span>: BE 1004.375.315
+        </p>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold text-slate-900" data-i18n="nav.services">Services</p>
+        <div class="mt-3 flex flex-col gap-2 text-sm text-slate-500">
+          <a href="#services" class="hover:text-brand-600" data-i18n="nav.services">Services</a>
+          <a href="#about" class="hover:text-brand-600" data-i18n="nav.about">About</a>
+          <a href="#contact" class="hover:text-brand-600" data-i18n="nav.contact">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto mt-10 pt-6 border-t border-slate-100 text-xs text-slate-400">
+      <p>&copy; <span id="year"></span> R2 Solutions. <span data-i18n="footer.rights">All rights reserved.</span></p>
     </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = String(new Date().getFullYear());
 
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -285,6 +321,202 @@
         menuBtn.setAttribute('aria-expanded', 'false');
       });
     });
+
+    // --- i18n ---
+    const translations = {
+      en: {
+        nav: { services: 'Services', about: 'About', contact: 'Contact', cta: 'Get in touch' },
+        hero: {
+          badge: 'Technology & consulting',
+          title1: 'Practical solutions for',
+          title2: 'real business problems',
+          subtitle: "R2 Solutions partners with growing companies to design, build, and support the software that keeps their operations running smoothly.",
+          ctaPrimary: 'Start a conversation',
+          ctaSecondary: 'See what we do',
+        },
+        services: {
+          eyebrow: 'Services',
+          heading: 'What we do',
+          paragraph: 'From a single automated workflow to a full product build, we scope work to fit your timeline and budget — no bloated engagements.',
+          card1Title: 'Custom software',
+          card1Desc: 'Web apps, internal tools, and integrations built around how your team actually works.',
+          card2Title: 'Process automation',
+          card2Desc: 'We find the manual, error-prone parts of your workflow and quietly make them disappear.',
+          card3Title: 'Cloud & infrastructure',
+          card3Desc: 'Reliable, right-sized infrastructure — from hosting to CI/CD — that scales with you.',
+        },
+        about: {
+          eyebrow: 'About',
+          heading: 'A small team, deliberately.',
+          paragraph: "R2 Solutions stays small on purpose — every engagement gets direct access to the people actually doing the work, not layers of account management. We favor clear communication, realistic timelines, and software that's built to be maintained, not just shipped.",
+          stat1: 'Years combined experience',
+          stat2: 'Direct client access',
+          stat3: 'Focus per engagement',
+          step1Title: 'Understand the problem',
+          step1Desc: 'We start with your workflow, not our tech stack.',
+          step2Title: 'Ship something small',
+          step2Desc: 'A working version early, so we can course-correct fast.',
+          step3Title: 'Support what we build',
+          step3Desc: 'We stick around after launch — not just at handoff.',
+        },
+        contact: {
+          eyebrow: 'Contact',
+          heading: "Let's talk about your project",
+          paragraph: "Tell us a bit about what you're trying to build or fix, and we'll get back to you within one business day.",
+          nameLabel: 'Name',
+          emailLabel: 'Email',
+          messageLabel: 'Message',
+          submit: 'Send message',
+          note: "This form isn't wired to a backend yet — hook it up to a Cloudflare Pages Function or a service like Formspree when you're ready.",
+          phoneFallback: '+32 (0) — add phone number',
+          remote: 'Remote-first, working worldwide',
+        },
+        footer: {
+          companyDetails: 'Company details',
+          vatLabel: 'VAT',
+          rights: 'All rights reserved.',
+        },
+      },
+      nl: {
+        nav: { services: 'Diensten', about: 'Over ons', contact: 'Contact', cta: 'Neem contact op' },
+        hero: {
+          badge: 'Technologie & consulting',
+          title1: 'Praktische oplossingen voor',
+          title2: 'echte bedrijfsproblemen',
+          subtitle: 'R2 Solutions werkt samen met groeiende bedrijven om de software te ontwerpen, bouwen en ondersteunen die hun activiteiten soepel laat verlopen.',
+          ctaPrimary: 'Start een gesprek',
+          ctaSecondary: 'Bekijk wat we doen',
+        },
+        services: {
+          eyebrow: 'Diensten',
+          heading: 'Wat we doen',
+          paragraph: 'Van een enkele geautomatiseerde workflow tot een volledige productbouw, we stemmen het werk af op uw tijdlijn en budget — geen opgeblazen trajecten.',
+          card1Title: 'Maatwerksoftware',
+          card1Desc: 'Webapplicaties, interne tools en integraties gebouwd rond hoe uw team echt werkt.',
+          card2Title: 'Procesautomatisering',
+          card2Desc: 'We sporen de manuele, foutgevoelige delen van uw workflow op en laten ze stilletjes verdwijnen.',
+          card3Title: 'Cloud & infrastructuur',
+          card3Desc: 'Betrouwbare, juist gedimensioneerde infrastructuur — van hosting tot CI/CD — die met u meegroeit.',
+        },
+        about: {
+          eyebrow: 'Over ons',
+          heading: 'Een klein team, met opzet.',
+          paragraph: 'R2 Solutions blijft bewust klein — elk traject krijgt rechtstreeks toegang tot de mensen die het werk effectief uitvoeren, geen lagen van accountbeheer. We geven de voorkeur aan duidelijke communicatie, realistische tijdlijnen en software die gebouwd is om onderhouden te worden, niet enkel opgeleverd.',
+          stat1: 'Jaar gecombineerde ervaring',
+          stat2: 'Directe klanttoegang',
+          stat3: 'Focus per traject',
+          step1Title: 'Het probleem begrijpen',
+          step1Desc: 'We starten bij uw workflow, niet bij onze technologie.',
+          step2Title: 'Iets kleins opleveren',
+          step2Desc: 'Een werkende versie, vroeg, zodat we snel kunnen bijsturen.',
+          step3Title: 'Ondersteunen wat we bouwen',
+          step3Desc: 'We blijven na de lancering — niet enkel bij de oplevering.',
+        },
+        contact: {
+          eyebrow: 'Contact',
+          heading: 'Laten we het over uw project hebben',
+          paragraph: 'Vertel ons kort waar u aan wilt bouwen of wat u wilt oplossen, en we reageren binnen één werkdag.',
+          nameLabel: 'Naam',
+          emailLabel: 'E-mail',
+          messageLabel: 'Bericht',
+          submit: 'Bericht versturen',
+          note: 'Dit formulier is nog niet gekoppeld aan een backend — koppel het aan een Cloudflare Pages Function of een dienst zoals Formspree wanneer u klaar bent.',
+          phoneFallback: '+32 (0) — telefoonnummer toevoegen',
+          remote: 'Remote-first, wereldwijd actief',
+        },
+        footer: {
+          companyDetails: 'Bedrijfsgegevens',
+          vatLabel: 'BTW',
+          rights: 'Alle rechten voorbehouden.',
+        },
+      },
+      fr: {
+        nav: { services: 'Services', about: 'À propos', contact: 'Contact', cta: 'Nous contacter' },
+        hero: {
+          badge: 'Technologie & conseil',
+          title1: 'Des solutions concrètes pour',
+          title2: "de vrais problèmes d'entreprise",
+          subtitle: "R2 Solutions accompagne les entreprises en croissance dans la conception, le développement et le support des logiciels qui font tourner leurs activités.",
+          ctaPrimary: 'Démarrer une conversation',
+          ctaSecondary: 'Découvrir nos services',
+        },
+        services: {
+          eyebrow: 'Services',
+          heading: 'Ce que nous faisons',
+          paragraph: "D'un simple workflow automatisé à la construction complète d'un produit, nous adaptons le travail à votre calendrier et à votre budget — sans mission surdimensionnée.",
+          card1Title: 'Logiciels sur mesure',
+          card1Desc: "Applications web, outils internes et intégrations conçus autour du fonctionnement réel de votre équipe.",
+          card2Title: 'Automatisation des processus',
+          card2Desc: 'Nous repérons les tâches manuelles et sources d\'erreurs de votre workflow et les faisons disparaître discrètement.',
+          card3Title: 'Cloud & infrastructure',
+          card3Desc: "Une infrastructure fiable et adaptée — de l'hébergement au CI/CD — qui évolue avec vous.",
+        },
+        about: {
+          eyebrow: 'À propos',
+          heading: 'Une petite équipe, volontairement.',
+          paragraph: "R2 Solutions reste volontairement une petite structure — chaque mission donne un accès direct aux personnes qui réalisent le travail, sans intermédiaires. Nous privilégions une communication claire, des délais réalistes et des logiciels conçus pour être maintenus, pas seulement livrés.",
+          stat1: "Années d'expérience cumulée",
+          stat2: 'Accès direct au client',
+          stat3: 'Focus par mission',
+          step1Title: 'Comprendre le problème',
+          step1Desc: 'Nous partons de votre workflow, pas de notre stack technique.',
+          step2Title: 'Livrer rapidement une première version',
+          step2Desc: 'Une version fonctionnelle dès le début, pour pouvoir ajuster rapidement.',
+          step3Title: 'Assurer le support de ce que nous construisons',
+          step3Desc: 'Nous restons présents après le lancement, pas seulement à la livraison.',
+        },
+        contact: {
+          eyebrow: 'Contact',
+          heading: 'Parlons de votre projet',
+          paragraph: 'Dites-nous en quelques mots ce que vous souhaitez construire ou résoudre, et nous vous répondrons sous un jour ouvré.',
+          nameLabel: 'Nom',
+          emailLabel: 'E-mail',
+          messageLabel: 'Message',
+          submit: 'Envoyer le message',
+          note: "Ce formulaire n'est pas encore relié à un backend — connectez-le à une Cloudflare Pages Function ou à un service comme Formspree quand vous serez prêt.",
+          phoneFallback: '+32 (0) — ajouter un numéro',
+          remote: '100% à distance, dans le monde entier',
+        },
+        footer: {
+          companyDetails: 'Coordonnées',
+          vatLabel: 'TVA',
+          rights: 'Tous droits réservés.',
+        },
+      },
+    };
+
+    function getPath(obj, path) {
+      return path.split('.').reduce((acc, key) => (acc == null ? acc : acc[key]), obj);
+    }
+
+    function applyLanguage(lang) {
+      const dict = translations[lang] || translations.en;
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const value = getPath(dict, el.getAttribute('data-i18n'));
+        if (typeof value === 'string') {
+          el.textContent = value;
+        }
+      });
+      document.documentElement.lang = lang;
+      localStorage.setItem('r2-lang', lang);
+
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        const isActive = btn.getAttribute('data-lang-btn') === lang;
+        btn.classList.toggle('bg-white', isActive);
+        btn.classList.toggle('shadow-sm', isActive);
+        btn.classList.toggle('text-brand-600', isActive);
+        btn.classList.toggle('text-slate-500', !isActive);
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach((btn) => {
+      btn.addEventListener('click', () => applyLanguage(btn.getAttribute('data-lang-btn')));
+    });
+
+    const browserLang = (navigator.language || 'en').slice(0, 2);
+    const initialLang = localStorage.getItem('r2-lang')
+      || (['en', 'nl', 'fr'].includes(browserLang) ? browserLang : 'en');
+    applyLanguage(initialLang);
   </script>
 </body>
 </html>
