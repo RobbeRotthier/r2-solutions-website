@@ -227,7 +227,7 @@
           one business day.
         </p>
 
-        <form class="mt-12 text-left grid gap-5 sm:grid-cols-2" onsubmit="return false;">
+        <form id="contact-form" class="mt-12 text-left grid gap-5 sm:grid-cols-2">
           <div>
             <label for="name" class="block text-sm font-medium text-slate-700" data-i18n="contact.nameLabel">Name</label>
             <input id="name" name="name" type="text" required
@@ -243,16 +243,20 @@
             <textarea id="message" name="message" rows="4" required
               class="mt-1.5 w-full rounded-lg border border-slate-200 px-4 py-2.5 text-slate-800 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 focus:outline-none"></textarea>
           </div>
+          <div class="hidden" aria-hidden="true">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+          </div>
           <div class="sm:col-span-2 flex items-center justify-between gap-4">
             <p class="text-xs text-slate-400" data-i18n="contact.note">
-              This form isn't wired to a backend yet — hook it up to a Cloudflare Pages Function or a
-              service like Formspree when you're ready.
+              We'll never share your details, and there's no spam — just a reply from a person.
             </p>
-            <button type="submit"
-              class="flex-none rounded-full bg-brand-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-700 transition-colors" data-i18n="contact.submit">
+            <button id="contact-submit" type="submit"
+              class="flex-none rounded-full bg-brand-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-700 transition-colors disabled:opacity-60" data-i18n="contact.submit">
               Send message
             </button>
           </div>
+          <p id="contact-status" class="sm:col-span-2 text-sm" role="status" aria-live="polite"></p>
         </form>
 
         <div class="mt-14 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-slate-600">
@@ -367,7 +371,10 @@
           emailLabel: 'Email',
           messageLabel: 'Message',
           submit: 'Send message',
-          note: "This form isn't wired to a backend yet — hook it up to a Cloudflare Pages Function or a service like Formspree when you're ready.",
+          note: "We'll never share your details, and there's no spam — just a reply from a person.",
+          sending: 'Sending…',
+          success: "Thanks — your message is on its way. We'll get back to you within one business day.",
+          error: 'Something went wrong sending your message. Please try again or email us directly.',
           phoneFallback: '+32 (0) — add phone number',
           remote: 'Remote-first, working worldwide',
         },
@@ -420,7 +427,10 @@
           emailLabel: 'E-mail',
           messageLabel: 'Bericht',
           submit: 'Bericht versturen',
-          note: 'Dit formulier is nog niet gekoppeld aan een backend — koppel het aan een Cloudflare Pages Function of een dienst zoals Formspree wanneer u klaar bent.',
+          note: 'We delen uw gegevens nooit en er is geen spam — enkel een antwoord van een persoon.',
+          sending: 'Verzenden…',
+          success: 'Bedankt — uw bericht is onderweg. We reageren binnen één werkdag.',
+          error: 'Er ging iets mis bij het verzenden van uw bericht. Probeer het opnieuw of mail ons rechtstreeks.',
           phoneFallback: '+32 (0) — telefoonnummer toevoegen',
           remote: 'Remote-first, wereldwijd actief',
         },
@@ -473,7 +483,10 @@
           emailLabel: 'E-mail',
           messageLabel: 'Message',
           submit: 'Envoyer le message',
-          note: "Ce formulaire n'est pas encore relié à un backend — connectez-le à une Cloudflare Pages Function ou à un service comme Formspree quand vous serez prêt.",
+          note: "Nous ne partageons jamais vos données, et il n'y a pas de spam — juste une réponse d'une personne.",
+          sending: 'Envoi en cours…',
+          success: 'Merci — votre message est en route. Nous vous répondrons sous un jour ouvré.',
+          error: "Une erreur s'est produite lors de l'envoi de votre message. Réessayez ou écrivez-nous directement.",
           phoneFallback: '+32 (0) — ajouter un numéro',
           remote: '100% à distance, dans le monde entier',
         },
@@ -517,6 +530,45 @@
     const initialLang = localStorage.getItem('r2-lang')
       || (['en', 'nl', 'fr'].includes(browserLang) ? browserLang : 'en');
     applyLanguage(initialLang);
+
+    const contactForm = document.getElementById('contact-form');
+    const contactStatus = document.getElementById('contact-status');
+    const contactSubmit = document.getElementById('contact-submit');
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const dict = translations[document.documentElement.lang] || translations.en;
+      const formData = new FormData(contactForm);
+
+      contactSubmit.disabled = true;
+      contactStatus.textContent = dict.contact.sending;
+      contactStatus.className = 'sm:col-span-2 text-sm text-slate-500';
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.get('name'),
+            email: formData.get('email'),
+            message: formData.get('message'),
+            company: formData.get('company'),
+          }),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(result.error || dict.contact.error);
+        }
+        contactStatus.textContent = dict.contact.success;
+        contactStatus.className = 'sm:col-span-2 text-sm text-green-600';
+        contactForm.reset();
+      } catch (err) {
+        contactStatus.textContent = err.message || dict.contact.error;
+        contactStatus.className = 'sm:col-span-2 text-sm text-red-600';
+      } finally {
+        contactSubmit.disabled = false;
+      }
+    });
   </script>
 </body>
 </html>
