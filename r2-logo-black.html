@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f4f4f2;
+            margin: 0;
+            padding: 40px 20px;
+            color: #222;
+        }
+
+        h2 {
+            max-width: 1200px;
+            margin: 0 auto 14px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #444;
+            padding-left: 4px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            width: 260px;
+            height: 150px;
+        }
+
+        .wordmark {
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="grid" id="grid-black"></div>
+
+<script>
+    const blues = [
+        {name: "Electric blue", hex: "#2E7DE0"},
+    ];
+
+    function makeCard(c, bgHex, textHex) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.background = bgHex;
+        card.innerHTML = `
+    <div class="row">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+<!--        left-->
+        <rect x="17.5" y="17.5" width="90" height="90" fill="none" stroke="${c.hex}" stroke-width="2"/>
+<!--        right-->
+        <rect x="32.5" y="32.5" width="90" height="90" fill="none" stroke="${c.hex}" stroke-width="2"/>
+<!--        text-->
+        <text x="47.5" y="82.5" font-family="Arial, sans-serif" font-size="35" font-weight="700" fill="${textHex}" >R2</text>
+      </svg>
+      <span class="wordmark" style="color: ${textHex}">SOLUTIONS</span>
+    </div>
+  `;
+        return card;
+    }
+
+    const gridBlack = document.getElementById('grid-black');
+    blues.forEach(c => gridBlack.appendChild(makeCard(c, "#0b0b0b", "#f4f4f2")));
+</script>
+
+</body>
+</html>
